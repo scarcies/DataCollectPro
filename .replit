@@ -6,3 +6,31 @@ channel = "stable-24_05"
 
 [deployment]
 build = ["sh", "-c", "make"]
+
+[workflows]
+runButton = "DataCollectPro Dev"
+
+[[workflows.workflow]]
+name = "DataCollectPro Dev"
+author = 42083418
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"Starting DataCollectPro Development Environment...\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd server && npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd ../client && npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"Development environment ready!\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"Access at: http://localhost:5000\""
