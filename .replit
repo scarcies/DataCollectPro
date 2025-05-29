@@ -44,6 +44,27 @@ args = "echo \"🌐 Starting development server...\""
 task = "shell.exec"
 args = "npm run dev"
 
+[[workflows.workflow]]
+name = "DataCollectPro Setup"
+author = 42083418
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"🗄️ Setting up DataCollectPro database...\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server/lib/bin/run-migrations.js"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server/lib/bin/seed-database.js"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"✅ Database setup complete!\""
+
 [[ports]]
 localPort = 3000
 externalPort = 80
