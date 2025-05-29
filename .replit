@@ -21,36 +21,28 @@ args = "echo \"🚀 Starting DataCollectPro Development Environment...\""
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
+args = "echo \"📦 Installing dependencies...\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "echo \"🔧 Running database migrations...\""
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
 args = "node server/lib/bin/run-migrations.js"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "echo \"📦 Installing server dependencies...\""
+args = "echo \"🌐 Starting development server...\""
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd server && npm install"
+args = "echo \"✅ Development environment ready at http://0.0.0.0:5000\""
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "echo \"📦 Installing client dependencies...\""
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd ../client && npm install"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "echo \"🔧 Starting development servers...\""
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "echo \"✅ Development environment ready!\""
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "echo \"🌐 Access at: http://0.0.0.0:5000\""
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "cd ../server && npm run dev"
+args = "npm run dev"
