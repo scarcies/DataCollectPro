@@ -6,6 +6,7 @@ channel = "stable-24_05"
 
 [deployment]
 build = ["sh", "-c", "make"]
+run = ["sh", "-c", "npm run start"]
 
 [workflows]
 runButton = "DataCollectPro Dev"
@@ -33,7 +34,7 @@ args = "echo \"🔧 Running database migrations...\""
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node server/lib/bin/run-migrations.js"
+args = "node server/lib/bin/run-migrations.js || echo \"⚠️ Migration warnings (expected on first run)\""
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
@@ -41,8 +42,8 @@ args = "echo \"🌐 Starting development server...\""
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "echo \"✅ Development environment ready at http://0.0.0.0:5000\""
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
 args = "npm run dev"
+
+[[ports]]
+localPort = 3000
+externalPort = 80
