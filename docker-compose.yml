@@ -43,6 +43,8 @@ services:
       - mail
       - pyxform
       - enketo
+      - redis
+      - analytics
     volumes:
       - secrets:/etc/secrets
       - /data/transfer:/data/transfer
@@ -151,9 +153,24 @@ services:
       - redis-server
       - /usr/local/etc/redis/redis.conf
     restart: always
+redis:
+    image: redis:7.4.2
+    volumes:
+      - redis:/data
+    command: redis-server --appendonly yes
+    restart: always
+  analytics:
+    image: plausible/analytics:v2.0
+    depends_on:
+      - postgres14
+    environment:
+      - BASE_URL=https://${DOMAIN}/analytics
+      - SECRET_KEY_BASE=${ANALYTICS_SECRET_KEY:-your-secret-key}
+    restart: always
 volumes:
   secrets:
   transfer:
   postgres14:
   enketo_redis_main:
   enketo_redis_cache:
+  redis:

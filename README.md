@@ -1,17 +1,20 @@
-# ODK Central
+# DataCollectPro
 
 ![Platform](https://img.shields.io/badge/platform-Docker-blue.svg)
 [![License](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Build status](https://circleci.com/gh/getodk/central.svg?style=shield)](https://circleci.com/gh/getodk/central)
 
-Central is the [ODK](https://getodk.org/) server. It manages user accounts and permissions, stores Form definitions, and allows data collection clients like ODK Collect to connect to it for Form download and Submission upload.
+DataCollectPro is an enterprise-grade data collection platform designed for research organizations, NGOs, and consulting firms. It provides secure form management, real-time data collection, advanced analytics, and comprehensive user management with enterprise-level features.
 
-Our goal with Central is to create a modern server that is easy to install, easy to use, and extensible with new features and functionality both directly in the software and with the use of our REST, OpenRosa, and OData programmatic APIs.
+DataCollectPro transforms data collection with enterprise features including:
 
-This repository serves as an umbrella for the Central project as a whole:
+* **Multi-tenant SaaS Architecture** - Secure organization isolation
+* **Advanced Analytics Dashboard** - Real-time insights and reporting
+* **Enterprise SSO Integration** - SAML, OAuth, and LDAP support
+* **API-First Design** - Comprehensive REST and GraphQL APIs
+* **Compliance & Security** - SOC 2, GDPR, and HIPAA ready
+* **White-label Solutions** - Customizable branding for partners
 
-* Operations repository for packaging the server and client into a Docker Compose application.
-* Release repository for publishing binary artifacts. Release notes can be found in this repository: see the [releases](https://github.com/getodk/central/releases).
+This repository contains the core platform infrastructure optimized for cloud deployment and enterprise scalability.
 
 If you are looking for help, please take a look at the [Documentation Website](https://docs.getodk.org/central-intro/). If that doesn't solve your problem, please head over to the [ODK Forum](https://forum.getodk.org) and do a search to see if anybody else has had the same problem. If you've identified a new problem or have a feature request, please post on the forum. We prefer forum posts to GitHub issues because more of the community is on the forum.
 
